@@ -1,4 +1,3 @@
-"""Prim's minimum spanning tree algorithm for undirected weighted graphs."""
 
 from heapq import heappop, heappush
 from math import isfinite
@@ -6,25 +5,6 @@ from numbers import Rational, Real
 
 
 def prim_mst(buildings, connections):
-    """Return the minimum spanning tree edges and their total cost.
-
-    ``buildings`` is an iterable of names. ``connections`` is an iterable of
-    ``(building_a, building_b, cost)`` records. Names are trimmed before use;
-    repeated undirected connections keep only their lowest cost.
-
-    Returns:
-        A pair: a list of ``(building_a, building_b, cost)`` MST edges and the
-        total cost. Edge endpoints are returned in alphabetical order.
-
-    Raises:
-        ValueError: If the input is invalid, empty, or the graph is disconnected.
-
-    Complexity:
-        Time: O(M + (V + E) log V), where M is the number of input
-        connections, V is the number of buildings, and E is the number of
-        distinct connections.
-        Space: O(V + E) for the normalized graph, heap, and result.
-    """
     if buildings is None or isinstance(buildings, (str, bytes)):
         raise ValueError("Provide at least one building name.")
 
